@@ -1,0 +1,57 @@
+<!-- <span *ngFor="let i of allData">
+    <p>{{i.name}}</p><hr>
+    <p>{{i.address}}</p>
+</span> -->
+
+<!-- <p>{{ allData.courses }}</p> -->
+<!-- <p *ngFor="let data of allData"> </p> -->
+
+
+<div class="course-details">
+    <mat-card>
+        <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
+            <mat-card-content>
+                <mat-form-field>
+                    <input matInput placeholder="Name" type="text" name="name" required
+                        [(ngModel)]="selectedCourse.name" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Description" type="text" name="description"
+                        [(ngModel)]="selectedCourse.description" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Address" type="text" name="address"
+                        [(ngModel)]="selectedCourse.address" />
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button [disabled]="form.invalid" type="submit" mat-button color="primary">
+                    Submit
+                </button>
+                <button type="button" mat-button>Update</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
+
+<div class="courses-list">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title> Course List </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let course of allData" (click)="selectCourse(course)">
+                    <h3 matLine>{{ course.name }}</h3>
+                    <p matLine>{{ course.address }}</p>
+                    <hr>
+                    <button mat-icon-button color="warn" (click)="
+                    deleteCourse(course._id); $event.stopImmediatePropagation()
+                  ">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
