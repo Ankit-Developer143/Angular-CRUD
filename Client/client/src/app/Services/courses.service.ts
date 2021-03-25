@@ -37,8 +37,8 @@ export class CoursesService {
 
 
 
-  updateCoursesById(courses:Course){
-    return this.httpClient.put(this.getUrlById(courses._id),courses)
+  updateCoursesById(course:Course){
+    return this.httpClient.put(this.getUrlById(course._id),course)
   }
   
 

@@ -38,22 +38,35 @@ allData:any[] =[]
   }
 
 
-  saveCourse(selectedCoursecd:Course) {
-    if(selectedCourse._id){
-      this._courses.updateCoursesById(selectedCourse).subscribe(res =>{
-        console.log(res);
-      })
-    }else{
-    this._courses.create(selectedCourse).subscribe(res => {
-        console.log(res);
-      })
+//   saveCourse(course: Course) {
+//     if(course._id){
+//       this._courses.updateCoursesById(course).subscribe(res =>{
+//         console.log(res);
+//       })
+//     }else{
+//     this._courses.create(course).subscribe(res => {
+//         console.log(res);
+//       })
      
-  }
+//   }
+// }
+
+saveCourse(course: Course) {
+  if(course._id){
+    this._courses.updateCoursesById(course).subscribe(res =>{
+      console.log(res);
+    })
+  }else{
+  this._courses.create(course).subscribe(res => {
+      console.log(res);
+    })
+   
+}
 }
 
-  selectCourse(course:Course){
-    this.selectedCourse = course;
-    console.log(course)
+  selectCourse(courses:Course){
+    this.selectedCourse = courses;
+    console.log(courses)
 
   }
   // deleteCourse(courseId:string){

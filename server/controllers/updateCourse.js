@@ -1,37 +1,36 @@
-const Course = require('../models/Course')
+const Course = require("../models/Course");
 
 //@PUT
 //Update one user
 const updateCourse = async (req, res) => {
-  const { title, description, percentComplete, favorite } = req.body
+  const { name, description, address } = req.body;  
   try {
     const updatedCourse = await Course.findByIdAndUpdate(
       // { _id: req.params.id },
       req.params.id,
       {
         $set: {
-          title,
+          name,
           description,
-          percentComplete,
-          favorite,
+          address,
         },
       },
       { new: true }
-    )
+    );
     res.json({
-      status: 'Successful',
-      message: 'Course successfully updated',
+      status: "Successful",
+      message: "Course successfully updated",
       data: {
         updatedCourse,
       },
-    })
+    });
   } catch (err) {
     /* handle error */
     res.json({
-      status: 'Unsuccessful',
+      status: "Unsuccessful",
       message: err.message,
-    })
+    });
   }
-}
+};
 
-module.exports = updateCourse
+module.exports = updateCourse;
