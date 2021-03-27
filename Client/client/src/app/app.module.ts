@@ -11,6 +11,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { ListingComponent } from './listing/listing.component';
 import { CoursesService } from './Services/courses.service';
+import { ViewComponent } from './listing/view/view.component';
+
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { CoursesService } from './Services/courses.service';
   declarations: [
     AppComponent,
     ListingComponent,
+    ViewComponent,
+   
     
   ],
   providers: [

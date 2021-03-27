@@ -42,12 +42,12 @@
         <mat-card-content>
             <mat-list>
                 <mat-list-item *ngFor="let course of allData" (click)="selectCourse(course)">
+                    <a [routerLink]="['/view/', course._id]">{{course._id}}</a>
                     <h3 matLine>{{ course.name }}</h3>
                     <p matLine>{{ course.address }}</p>
                     <hr>
-                    <button mat-icon-button color="warn" (click)="
-                    deleteCourse(course._id); $event.stopImmediatePropagation()
-                  ">
+                    <button mat-icon-button color="warn"
+                        (click)="deleteCourse(course._id); $event.stopImmediatePropagation()">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </mat-list-item>

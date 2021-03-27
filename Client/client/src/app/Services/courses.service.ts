@@ -24,26 +24,27 @@ export class CoursesService {
   create(course: Course) {
     return this.httpClient.post(BASE_URL, course)
   }
-
-  // delete(courseId:string):any{
-  //   return this.delete(`{this.getUrlById(courseId)}`)
-  // }
   deleteProduct(id: string) {
     return this.httpClient.delete(this.getUrlById(id))
   }
-  // getUrlById(id:string){
-  //   return `${BASE_URL}/${id}`
-  // }
+
 
 
 
   updateCoursesById(course:Course){
-    return this.httpClient.put(this.getUrlById(course._id),course)
+    return this.httpClient.put(this.getUrlById(course.id),course)
   }
+
+  // getCoursesById(id:string){
+  //   return this.httpClient.get(this.getUrlById(id)) 
+  // }
   
+  getCoursesById(id:string):Observable<any>{
+    return this.httpClient.get(this.getUrlById(id))
+  }
 
 
-  getUrlById(id:string){
+  getUrlById(id:any){
     return `${BASE_URL}/${id}`
   }
 
